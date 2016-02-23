@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- whether rule processing is enabled -->
+    <bool name="ruleProcessingEnabled">true</bool>
+
+    <!-- time interval in seconds between rule syncs -->
+    <integer name="ruleSyncInterval">1</integer>
+
+    <!-- events for which rules would be processed -->
+    <string-array name="ruleEvents">
+        <item>CAMPED</item>
+        <item>EXITED</item>
+        <item>TRIGGERED</item>
+    </string-array>
+
+    <!-- whether analytics is enabled -->
+    <bool name="analyticsEnabled">true</bool>
+
+    <!-- time interval in seconds between analytics posting -->
+    <integer name="analyticsPostInterval">900</integer>
+
+    <!-- Whether bug tracking is enabled -->
+    <bool name="bugTrackingEnabled">true</bool>
+
+    <!-- Beaconstac API token -->
+    <string name="api_key">9f059aec9229fee94452d53461934f58278e4201</string>
+
+    <!-- Organization id -->
+    <integer name="organization_id">819</integer>
+
+    <!-- Provider authority -->
+    <string name="provider">com.mobstac.beaconstacexample.provider</string>
+</resources>
