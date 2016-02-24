@@ -28,6 +28,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -219,7 +220,7 @@ public class MainActivity extends AppCompatActivity {
             case 1:
                 intent.putExtra("text", text);
 
-               /* dialogBuilder = new AlertDialog.Builder(context);
+                dialogBuilder = new AlertDialog.Builder(context);
                 dialogBuilder.setTitle(title).setMessage(text);
                 AlertDialog dialog = dialogBuilder.create();
                 dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
@@ -229,12 +230,12 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
                 dialog.show();
-                isPopupVisible = true;*/
+                isPopupVisible = true;
                 break;
             case 2:
                 intent.putExtra("webUrl", webUrl);
 
-                /*if (!isPopupVisible) {
+                if (!isPopupVisible) {
                     dialogBuilder = new AlertDialog.Builder(context);
                     dialogBuilder.setOnCancelListener(new DialogInterface.OnCancelListener() {
                         @Override
@@ -244,14 +245,22 @@ public class MainActivity extends AppCompatActivity {
                     });
                     dialogBuilder.setTitle(title);
                     final WebView webView = new WebView(context);
+                    webView.setWebViewClient(new WebViewClient() {
+                        @Override
+                        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                            view.loadUrl(url);
+                            return false;
+                        }
+                    });
                     webView.loadUrl(webUrl);
                     webView.getSettings().setBuiltInZoomControls(true);
+                    webView.getSettings().setJavaScriptEnabled(true);
                     webView.setInitialScale(85);
                     dialogBuilder.setView(webView);
                     dialogBuilder.setPositiveButton("Close", null);
                     dialogBuilder.show();
                     isPopupVisible = true;
-                }*/
+                }
                 break;
             case 3:
                 if (mediaUrl.contains(",http")) {
@@ -266,7 +275,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
         }
-        startActivity(intent);
+        /*startActivity(intent);*/
 
     }
 
@@ -562,11 +571,19 @@ public class MainActivity extends AppCompatActivity {
                             dialogBuilder.setTitle(ruleName);
 
                             final WebView webView = new WebView(context);
+                            webView.setWebViewClient(new WebViewClient() {
+                                @Override
+                                public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                                    view.loadUrl(url);
+                                    return false;
+                                }
+                            });
                             if (messageMap.get("url").toString().startsWith("http"))
                                 webView.loadUrl(messageMap.get("url").toString());
                             else
                                 webView.loadUrl("http://" + messageMap.get("url").toString());
                             webView.getSettings().setBuiltInZoomControls(true);
+                            webView.getSettings().setJavaScriptEnabled(true);
                             webView.setInitialScale(85);
                             dialogBuilder.setView(webView);
                             dialogBuilder.setPositiveButton("Close", null);

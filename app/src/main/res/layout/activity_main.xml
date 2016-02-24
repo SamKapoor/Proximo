@@ -2,13 +2,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mountain_bg"
+    android:background="@android:color/white"
     tools:context="com.mobstac.beaconstacexample.activity.MainActivity">
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/opaque" />
+        android:layout_height="match_parent" />
 
     <ListView
         android:id="@+id/beaconListView"

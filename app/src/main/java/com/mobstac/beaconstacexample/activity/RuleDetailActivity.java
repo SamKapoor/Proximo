@@ -1,13 +1,10 @@
 package com.mobstac.beaconstacexample.activity;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.AppCompatActivity;
 import android.webkit.WebView;
 
 import com.mobstac.beaconstacexample.R;
@@ -38,11 +35,11 @@ public class RuleDetailActivity extends AppCompatActivity {
 
         switch (type) {
             case 1:
-                dialogBuilder.setTitle(title).setMessage(text);
+//                dialogBuilder.setTitle(title).setMessage(text);
                 break;
             case 2:
                 dialogBuilder.setTitle(title);
-                final WebView webView = new WebView(context);
+                final WebView webView = new WebView(this);
                 webView.loadUrl(webUrl);
                 webView.getSettings().setBuiltInZoomControls(true);
                 webView.setInitialScale(85);
